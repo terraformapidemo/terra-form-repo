@@ -25,7 +25,7 @@ resource "aws_autoscaling_group" "previously_asg" {
 
 resource "aws_elb" "previously_elb" {
   name = "previously_elb"
-  availability_zone = ["##region##"]
+  availability_zone = ["us_west_39"]
   subnets = ["${aws_subnet.previously_private_us_west_2a.id}", "${aws_subnet.previously_private_us_west_2b.id}"]
   security_groups = ["${aws_security_group.previously_elb_sg.id}"]
   instance=##instance##
