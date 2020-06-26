@@ -1,6 +1,6 @@
 # Define launch configuration
 #changed
-##region##
+
 
 resource "aws_launch_configuration" "previously_webcluster" {
   name = "previously_webcluster"
@@ -25,10 +25,10 @@ resource "aws_autoscaling_group" "previously_asg" {
 
 resource "aws_elb" "previously_elb" {
   name = "previously_elb"
-  availability_zone = ["us-west-2a", "us-west-2b"]
+  availability_zone = ["##region##"]
   subnets = ["${aws_subnet.previously_private_us_west_2a.id}", "${aws_subnet.previously_private_us_west_2b.id}"]
   security_groups = ["${aws_security_group.previously_elb_sg.id}"]
-
+  instance=##instance##
   listener {
     instance_port = 80
     instance_protocol = "http"
