@@ -28,7 +28,7 @@ resource "aws_elb" "previously_elb" {
   availability_zone = ["US East (Ohio)"]
   subnets = ["${aws_subnet.previously_private_us_west_2a.id}", "${aws_subnet.previously_private_us_west_2b.id}"]
   security_groups = ["${aws_security_group.previously_elb_sg.id}"]
-  instance=2
+  instance=7
   listener {
     instance_port = 80
     instance_protocol = "http"
